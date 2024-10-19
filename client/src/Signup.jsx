@@ -9,7 +9,10 @@ const Signup = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('',{name,email,password});
+    axios.post('http://localhost:3001/register',{name,email,password})
+    .then(result=>console.log(result))
+    .catch(error=>console.log(error))
+
   };
   return (
     <div className="d-flex justify-content-center align-items-center bg-secondary vh-100">
@@ -22,7 +25,7 @@ const Signup = () => {
               type="text"
               placeholder="EnterName"
               autoComplete="off"
-              name="email"
+              name="nme"
               className="form-control rounded-0"
               onChange={(e) => setName(e.target.value)}
             />
@@ -43,7 +46,7 @@ const Signup = () => {
                 type="password"
                 placeholder="EnterName"
                 autoComplete="off"
-                name="email"
+                name="password"
                 className="form-control my-2 rounded-0"
                 onChange={(e) => setPassword(e.target.value)}
               />
